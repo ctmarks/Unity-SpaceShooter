@@ -54,21 +54,21 @@ public class PlayerController : MonoBehaviour {
     {
 
         //Keyboard Input
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        //myRigid.velocity = movement * speed;
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        myRigid.velocity = movement * speed;
 
-        //myRigid.position = new Vector3
-        //    (
-        //        Mathf.Clamp(myRigid.position.x, boundary.xMin, boundary.xMax),
-        //        0.0f,
-        //        Mathf.Clamp(myRigid.position.z, boundary.zMin, boundary.zMax)
-        //    );
+        myRigid.position = new Vector3
+            (
+                Mathf.Clamp(myRigid.position.x, boundary.xMin, boundary.xMax),
+                0.0f,
+                Mathf.Clamp(myRigid.position.z, boundary.zMin, boundary.zMax)
+            );
 
-        //myRigid.rotation = Quaternion.Euler(0.0f, 0.0f, myRigid.velocity.x * -tilt);
-
+        myRigid.rotation = Quaternion.Euler(0.0f, 0.0f, myRigid.velocity.x * -tilt);
+	}
 
 
         //Accelerometer Input
@@ -98,21 +98,21 @@ public class PlayerController : MonoBehaviour {
 
 
         //Touch Input
-        Vector2 direction = touchpad.GetDirection();
-        Vector3 movement = new Vector3(direction.x, 0.0f, direction.y);
-
-
-        myRigid.velocity = movement * speed;
-        Debug.Log(movement);
-        myRigid.position = new Vector3
-        (
-            Mathf.Clamp(myRigid.position.x, boundary.xMin, boundary.xMax),
-            0.0f,
-            Mathf.Clamp(myRigid.position.z, boundary.zMin, boundary.zMax)
-        );
-
-        myRigid.rotation = Quaternion.Euler(0.0f, 0.0f, myRigid.velocity.x * -tilt);
-    }
+//        Vector2 direction = touchpad.GetDirection();
+//        Vector3 movement = new Vector3(direction.x, 0.0f, direction.y);
+//
+//
+//        myRigid.velocity = movement * speed;
+//        Debug.Log(movement);
+//        myRigid.position = new Vector3
+//        (
+//            Mathf.Clamp(myRigid.position.x, boundary.xMin, boundary.xMax),
+//            0.0f,
+//            Mathf.Clamp(myRigid.position.z, boundary.zMin, boundary.zMax)
+//        );
+//
+//        myRigid.rotation = Quaternion.Euler(0.0f, 0.0f, myRigid.velocity.x * -tilt);
+//    }
 
     void CalibrateAccelerometer()
     {
